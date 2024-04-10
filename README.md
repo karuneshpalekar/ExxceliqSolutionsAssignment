@@ -1,4 +1,4 @@
-<h1>Reqres</h1>
+<h1>Exxceliq Solutions Assignment</h1>
 <h3>An Android Application showcasing Pagination along with Clean Architecture along with Caching</h3>
 
 Screenshots from the application : 
