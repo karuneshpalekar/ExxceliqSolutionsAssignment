@@ -41,7 +41,7 @@ Screenshots from the application :
 - MVVM Architecture
 - Dependency injection with Hilt
 - Retrieves Data from the network using Retrofit 
--Documented Flow 
+- Documented Flow 
 
 ## Testing 
 Make sure to pre-fill Database with dummy data before testing 
