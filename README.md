@@ -43,6 +43,44 @@ Screenshots from the application :
 - Retrieves Data from the network using Retrofit 
 - Documented Flow 
 
+
+## Project Structure:
+
+- di (Dependency Injection): This directory  contains classes for managing dependencies throughout your project. 
+- data (Data Access Layer): This directory encapsulates all data-related concerns:
+    * local (Local Data):
+        * dao (Data Access Objects): Classes that interact with  local database, providing methods for CRUD operations.
+        * entity (Data Entities): Plain Java objects (POJOs) representing the data stored in local database 
+        * database (Database Helper): Classes that manage local database creation, upgrade, and deletion 
+    * remote (Remote Data):
+        * dto (Data Transfer Objects): Classes representing the data structure received from remote API.
+        * api (API Service): Interfaces defining methods for interacting with your API.
+- repository (Data Repository): This directory contains classes that act as a single source of truth for accessing data, mediating between local and remote sources. These leverage libraries like Room and Retrofit.
+    * paging (Paging): Classes related to fetching data in a paginated manner for optimized performance.
+    * repo (Repository Implementation): Implementation classes for the repository interfaces, handling data retrieval, caching, and error handling.
+- domain (Domain Layer): This directory houses application's core business logic, independent of how data is stored or accessed:
+    * model (Domain Models): POJOs representing the core concepts and business rules of the app. These typically map to local entities 
+    * repository (Domain Repository): Interfaces defining the domain-specific data access methods used by use cases.
+    * usecase (Use Cases): Classes encapsulating specific functionalities or interactions within app. They retrieve data from the repository and perform transformations as needed for the presentation layer.
+- presentation (Presentation Layer): This directory encompasses UI-related components:
+- util (Utility Classes): This directory contains helper classes with general-purpose functions reusable across the app.
+- ui/Theme (Jetpack Compose Theme): This folder contains classes defining app's visual theme using Jetpack Compose.
+
+  
+Class Responsibilities:
+* DAO: Provides methods for CRUD operations on local database.
+* Entity: Represents a data object stored in the local database.
+* API Service: Defines methods for making requests to remote API.
+* DTO: Represents the data structure received from the remote API.
+* Repository: Acts as a single point of access for data, handling retrieval from local or remote sources.
+* Domain Model: Represents a domain concept with business logic independent of data storage.
+* Domain Repository: Provides domain-specific data access methods for use cases.
+* Use Case: Encapsulates a specific app functionality, retrieving data from repositories and potentially transforming it for presentation.
+* UI Components: Represent the visual elements displayed on the screen 
+* Utility Classes: Contain general-purpose functions used throughout the app.
+
+
+
 ## Testing 
 Make sure to pre-fill Database with dummy data before testing 
 
